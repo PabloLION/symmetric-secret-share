@@ -1,0 +1,21 @@
+# Development Documentation
+
+## TODO
+
+3 - Add encryption algorithm. Empty slot to fill, in `encryption.py`
+7 - Add key to system variable and use it, instead of writing it every time.
+
+## DEV LOG
+
+1. (DONE) Add a script to generate different files from one same file. We always use `.env`
+2. (DONE) Use the CLI in (1) to write to the right place.
+3. (SKIP) Add a script to decrypt and encrypt.
+   1. check [grempe/secrets.js](https://github.com/grempe/secrets.js)
+4. (DONE)Add a way to edit the encrypted file
+5. (DONE)Add more content like `asset_name`, `decimal_digits`.
+6. (FAIL)This is opening a folder, not selecting one: Use GUI to select folder, see [typer official](https://typer.tiangolo.com/tutorial/launch/#locating-a-file).
+7. Add key to system variable and use it, instead of writing it every time.
+8. Use a .abstr folder in each repo to specify the path of the encrypted file, also supporting CLI execution from the external repo folder.
+9. Fetch file from cloud instead from this repo locally. (from local will require git pull every time before running it)
+10. GUI: tkinter to select folder
+11. Last key rotation

@@ -4,17 +4,17 @@
   "description": "Schema for symmetric_secrete_share config file",
   "type": "object",
   "required": [
-    "source_path",
-    "target_path"
+    "source_url",
+    "target_rel_path"
   ],
-  "source_path": {
+  "source_url": {
     "type": "string",
-    "description": "Path to the source file",
+    "description": "URL of the source file",
     "default": "./source.txt"
   },
-  "target_path": {
+  "target_rel_path": {
     "type": "string",
-    "description": "Path to the target file",
+    "description": "Relative path to the target file",
     "default": "./target.txt"
   },
   "last_key_rotation": {

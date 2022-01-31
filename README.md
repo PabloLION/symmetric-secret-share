@@ -19,8 +19,11 @@ Share secret files via github with symmetric encryption
 
 ### share
 
+- **IMPORTANT: The generated secret (`*.encrypted`) at should be git-ignored to avoid oblivious leakage.**
+
 1. Upload an encrypted file to GitHub (or other platforms).
 
 ## Contribute
 
 - Created for [Artcoin-Network](https://github.com/Artcoin-Network/), modifying the private repo[Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
+- Read More in [dev-docs.md](./docs/dev-docs.md)

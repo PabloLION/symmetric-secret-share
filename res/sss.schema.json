@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "sss.schema.json@latest",
+  "description": "Schema for symmetric_secrete_share config file",
+  "type": "object",
+  "required": [
+    "source_path",
+    "target_path"
+  ],
+  "source_path": {
+    "type": "string",
+    "description": "Path to the source file",
+    "default": "./source.txt"
+  },
+  "target_path": {
+    "type": "string",
+    "description": "Path to the target file",
+    "default": "./target.txt"
+  },
+  "last_key_rotation": {
+    "type": "integer",
+    "description": "Last key rotation time",
+    "default": 0
+  }
+}

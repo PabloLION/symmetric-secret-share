@@ -1,0 +1,6 @@
+{
+  "$schema": "../../res/sss.schema.json",
+  "source_path": "path",
+  "target_path": "path",
+  "last_key_rotation": 0
+}

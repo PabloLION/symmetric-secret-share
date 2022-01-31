@@ -5,8 +5,9 @@ import typer
 
 from sss_cli import APP_NAME
 from sss_cli.inject import inject
-from sss_cli._helper import write_file
+from sss_cli.helper import write_file
 from sss_cli.encryption import encrypt
+from sss_cli.share import share
 
 
 app = typer.Typer()
@@ -46,15 +47,10 @@ def set_key():
     print(f"app_dir: {app_dir}")
 
 
-@app.command("enc")
-def cmd_encrypt(
+@app.command("share")
+def cmd_share(
+    target_path: str = typer.Argument(..., help="path to your repo"),
     key: str = typer.Option(..., "-k", "--key", help="password as plaintext"),
-    secret_path: str = typer.Option(
-        PATHS["SECRET_FILE"], "-s", "--secret", help="path to secret file"
-    ),
 ):
     """Update the cypher file by encrypting the secret file."""
-    typer.secho("TODO: Currently no encrypt. Key not used", fg="yellow")
-    with open(secret_path, "rb") as secret_file:
-        secret_string = secret_file.read().decode("utf-8")
-    write_file(PATHS["CYPHER_FILE"], encrypt(secret_string, key))
+    share(target_path, key)

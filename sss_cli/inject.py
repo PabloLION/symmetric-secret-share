@@ -4,7 +4,7 @@ from pathlib import Path
 
 import typer
 
-from ._helper import config, throw_error, write_file, load_config
+from .helper import config, throw_error, write_file, load_config
 from .encryption import decrypt
 from .remote import fetch_encrypted
 
@@ -16,8 +16,7 @@ def inject(
     """Inject the decrypted cypher to correct path in repo."""
 
     typer.secho("TODO: Currently no decrypt. Key not used", fg="yellow")
-    config_path = Path(target_path) / ".sss.json"
-    load_config(config_path)
+    load_config(Path(target_path))
     plain_secret = decrypt_cypher(config.source, key)
     inject_files(
         folder_path=target_path,

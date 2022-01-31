@@ -7,19 +7,23 @@
     "source_url",
     "target_rel_path"
   ],
-  "source_url": {
+  "key_identifier": {
     "type": "string",
-    "description": "URL of the source file",
-    "default": "./source.txt"
-  },
-  "target_rel_path": {
-    "type": "string",
-    "description": "Relative path to the target file",
-    "default": "./target.txt"
+    "description": "The key identifier for the symmetric secret share"
   },
   "last_key_rotation": {
     "type": "integer",
     "description": "Last key rotation time",
     "default": 0
+  },
+  "source_url": {
+    "type": "string",
+    "description": "URL of the source file",
+    "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.env"
+  },
+  "target_rel_path": {
+    "type": "string",
+    "description": "Relative path to the target file",
+    "default": "./target.txt"
   }
 }

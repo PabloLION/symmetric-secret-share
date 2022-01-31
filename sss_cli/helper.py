@@ -24,10 +24,9 @@ def check_exist(file_path: Path) -> None:
         )
 
 
-def load_config(path: Path) -> None:
-
-    check_exist(path)
-    with open(path, "r") as config_file:
+def load_config(folder_path: Path) -> None:
+    check_exist(folder_path)
+    with open(folder_path / ".sss.json", "r") as config_file:
         config_string = config_file.read()
     config_dict = json.loads(config_string)
     config.source = config_dict.get("source_url")

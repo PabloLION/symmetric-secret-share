@@ -17,6 +17,9 @@ def inject(
 
     typer.secho("TODO: Currently no decrypt. Key not used", fg="yellow")
     load_config(Path(target_path))
+    print(key)
+    print(len(key))
+    print(config.source)
     plain_secret = decrypt_cypher(config.source, key)
     inject_files(
         folder_path=target_path,

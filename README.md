@@ -13,6 +13,11 @@ Share secret files via github with symmetric encryption
 2. Have a global config for the secret keys.
 3. Setup a config file in the target folder.
 
+### test
+
+key: `This key contains 32 characters.`
+"source_url": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.encrypted"
+
 ### fetch
 
 1. Make sure the config file exists.

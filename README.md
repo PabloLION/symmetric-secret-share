@@ -5,6 +5,7 @@ Share secret files via github with symmetric encryption
 - Temporarily supports only `.env` files.
 - Used to store secrets and configurations.
 - **IMPORTANT: The secret files at should be git-ignored.**
+- Key should be a 32-byte long string.
 
 ## Use
 

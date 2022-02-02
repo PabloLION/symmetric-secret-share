@@ -21,3 +21,5 @@
 11. Last key rotation
 12. Select a config file / folder.
 13. throw_error
+14. settings version confirm
+15. use absolute path (no $SOME_PATH/./../file)

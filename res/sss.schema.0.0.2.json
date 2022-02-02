@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "sss.schema.json@0.0.2",
+  "title": "sss.schema.json",
+  "description": "Schema for symmetric_secrete_share config file",
+  "type": "object",
+  "required": [
+    "source_url",
+    "target_rel_path"
+  ],
+  "key_identifier": {
+    "type": "string",
+    "description": "The key identifier for the symmetric secret share"
+  },
+  "last_key_rotation": {
+    "type": "integer",
+    "description": "Last key rotation time",
+    "default": 0
+  },
+  "source_url": {
+    "type": "string",
+    "description": "URL of the source file",
+    "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env"
+  },
+  "target_rel_path": {
+    "type": "string",
+    "description": "Relative path to the target file",
+    "default": "./target.txt"
+  }
+}

@@ -1,29 +1,59 @@
 {
-  "$schema": "http://json-schema.org/schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "sss.schema.json@latest",
+  "title": "symmetric_secrete_share_schema",
   "description": "Schema for symmetric_secrete_share config file",
   "type": "object",
   "required": [
-    "source_url",
-    "target_rel_path"
+    "files",
+    "key_identifier",
+    "last_key_rotation",
+    "sss_version"
   ],
-  "key_identifier": {
-    "type": "string",
-    "description": "The key identifier for the symmetric secret share"
+  "properties": {
+    "sss_version:": {
+      "type": "string",
+      "enum": [
+        "0.0.3"
+      ],
+      "description": "Version of symmetric_secrete_share"
+    },
+    "key_identifier": {
+      "type": "string",
+      "description": "The key identifier for the symmetric secret share"
+    },
+    "last_key_rotation": {
+      "type": "integer",
+      "description": "Last key rotation time",
+      "default": 0
+    },
+    "files": {
+      "type": "array",
+      "description": "List of files to encrypt",
+      "items": {
+        "$ref": "#/$defs/file",
+        "minLength": 1
+      }
+    }
   },
-  "last_key_rotation": {
-    "type": "integer",
-    "description": "Last key rotation time",
-    "default": 0
-  },
-  "source_url": {
-    "type": "string",
-    "description": "URL of the source file",
-    "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env"
-  },
-  "target_rel_path": {
-    "type": "string",
-    "description": "Relative path to the target file",
-    "default": "./target.txt"
+  "$defs": {
+    "file": {
+      "required": [
+        "source_url",
+        "target_rel_path"
+      ],
+      "properties": {
+        "source_url": {
+          "type": "string",
+          "description": "URL of the source file",
+          "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env"
+        },
+        "target_rel_path": {
+          "type": "string",
+          "description": "Relative path to the target file",
+          "default": "./target.txt"
+        }
+      }
+    }
   }
 }

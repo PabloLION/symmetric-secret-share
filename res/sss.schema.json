@@ -49,7 +49,7 @@
     "sss_version": {
       "description": "Version of symmetric_secrete_share",
       "enum": [
-        "0.0.3"
+        "0.0.4"
       ],
       "type": "string"
     }

@@ -1,7 +1,8 @@
 ## functional
 
 # for test
-tests/injection-target/target.env
+tests/injection/target.env
+tests/injection/target.encrypted
 
 ## default
 .DS_Store

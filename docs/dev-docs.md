@@ -19,3 +19,4 @@
 9. (DONE)Fetch file from cloud instead from this repo locally. (from local will require git pull every time before running it)
 10. GUI: tkinter to select folder
 11. Last key rotation
+12. Select a config file / folder.

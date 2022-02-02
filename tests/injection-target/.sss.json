@@ -1,5 +1,6 @@
 {
   "$schema": "../../res/sss.schema.json",
+  "config_id": "sss-example",
   "key_identifier": "test_key",
   "last_key_rotation": 0,
   "source_url": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.encrypted",

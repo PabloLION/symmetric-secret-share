@@ -6,7 +6,8 @@ import typer
 
 from sss_cli import APP_NAME
 
-USE_KEYCHAIN = enum.auto()
+USE_KEYCHAIN = str(enum.auto())
+NOT_SET = str(enum.auto())
 
 
 class NoKeychainException(Exception):
@@ -47,12 +48,14 @@ def load_config(folder_path: Path) -> None:
     config_dict = json.loads(config_string)
     config.source = config_dict.get("source_url")
     config.target = config_dict.get("target_rel_path")
+    config.config_id = config_dict.get("config_id")
 
 
 class Config_Manager:
     def __init__(self):
-        self._source = "not_set"
-        self._target = "not_set"
+        self._source = NOT_SET
+        self._target = NOT_SET
+        self._config_id = NOT_SET
 
     @property
     def source(self):
@@ -73,6 +76,16 @@ class Config_Manager:
     def target(self, target: str):
         """Set target path."""
         self._target = target
+
+    @property
+    def config_id(self):
+        """Get config id."""
+        return self._config_id
+
+    @config_id.setter
+    def config_id(self, config_id: str):
+        """Set config id."""
+        self._config_id = config_id
 
 
 config = Config_Manager()

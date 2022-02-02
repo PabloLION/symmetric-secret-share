@@ -5,13 +5,13 @@ import typer
 from sss_cli.keychain import get_real_key
 
 from .encryption import decrypt
-from .helper import USE_KEYCHAIN, config, write_file
+from .helper import config, write_file
 from .remote import fetch_encrypted
 
 
 def inject(
     config_path: str = typer.Argument(..., help="Path to your config_file"),
-    key: str = typer.Option(USE_KEYCHAIN, "-k", "--key", help="Password as plaintext"),
+    key: str = typer.Option("", "-k", "--key", help="Password as plaintext"),
 ):
     """Inject the decrypted cypher to correct path in repo."""
 

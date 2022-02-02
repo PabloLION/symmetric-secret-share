@@ -5,12 +5,12 @@ import typer
 from sss_cli.keychain import get_real_key
 
 from .encryption import encrypt
-from .helper import USE_KEYCHAIN, config, write_file
+from .helper import config, write_file
 
 
 def share(
     config_path: str = typer.Argument(..., help="Path to your repo"),
-    key: str = typer.Option(USE_KEYCHAIN, "-k", "--key", help="Password as plaintext"),
+    key: str = typer.Option("", "-k", "--key", help="Password as plaintext"),
 ):
     """Update the cypher file by encrypting the secret file."""
     config.load(Path(config_path))

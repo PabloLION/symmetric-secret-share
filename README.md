@@ -17,8 +17,7 @@ Share secret files via github with symmetric encryption ed25519.
 
 ### fetch
 
-1. Make sure the config file exists.
-2. Run CLI
+1. Run CLI
 
 ### share
 

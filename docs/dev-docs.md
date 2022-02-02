@@ -1,10 +1,5 @@
 # Development Documentation
 
-## TODO
-
-3 - Add encryption algorithm. Empty slot to fill, in `encryption.py`
-7 - Add key to system variable and use it, instead of writing it every time.
-
 ## DEV LOG
 
 1. (DONE) Add a script to generate different files from one same file. We always use `.env`
@@ -18,7 +13,7 @@
 8. (DONE)Use a descriptive config file in each repo to specify the path of the encrypted file, also supporting CLI execution from the external repo folder.
 9. (DONE)Fetch file from cloud instead from this repo locally. (from local will require git pull every time before running it)
 10. (NONE)GUI: tkinter to select config file
-11. Last key rotation
+11. (MOVE)Last key rotation
 12. (DONE)Select a config file, not folder.
 13. (DONE)throw_error,check_exist
 14. (DONE)settings version confirm

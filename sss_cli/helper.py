@@ -7,7 +7,6 @@ import typer
 
 from sss_cli import APP_NAME, __version__
 
-USE_KEYCHAIN = str(enum.auto())
 NOT_SET = str(enum.auto())
 
 

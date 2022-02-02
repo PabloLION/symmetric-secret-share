@@ -3,12 +3,7 @@ import json
 import typer
 
 from sss_cli import __version__
-from sss_cli.helper import (
-    USE_KEYCHAIN,
-    NoKeychainException,
-    config,
-    get_keychain,
-)
+from sss_cli.helper import NoKeychainException, config, get_keychain
 
 
 def load_key_from_chain(config_id: str) -> str:
@@ -37,7 +32,7 @@ def load_key_from_chain(config_id: str) -> str:
 
 
 def get_real_key(key: str) -> str:
-    if key == USE_KEYCHAIN:
+    if key == "":
         try:
             key = load_key_from_chain(config.config_id)
         except NoKeychainException:

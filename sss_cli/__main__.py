@@ -1,12 +1,8 @@
-from io import open_code
-from os import error, path
-import os.path
+from pathlib import Path
 import typer
 
 from sss_cli import APP_NAME
 from sss_cli.inject import inject
-from sss_cli.helper import write_file
-from sss_cli.encryption import encrypt
 from sss_cli.share import share
 
 
@@ -22,19 +18,6 @@ def cmd_inject(
     inject(repo_path, key)
 
 
-def get_paths() -> dict[str, str]:
-    file_dir = os.path.dirname(os.path.abspath(__file__))
-    root = os.path.join(file_dir, "..")
-    return {
-        "ROOT": root,
-        "SECRET_FILE": os.path.join(root, "secret", "secret.env"),
-        "CYPHER_FILE": os.path.join(root, "cypher", "encrypted"),
-    }
-
-
-PATHS: dict[str, str] = get_paths()
-
-
 @app.command("helper")
 def helper():
     app_dir = typer.get_app_dir(APP_NAME)
@@ -44,6 +27,10 @@ def helper():
 @app.command("key")
 def set_key():
     app_dir = typer.get_app_dir(APP_NAME)
+    app_dir_path = Path(app_dir)
+    app_dir_path.mkdir(parents=True, exist_ok=True)
+
+    typer.launch(str(app_dir))
     print(f"app_dir: {app_dir}")
 
 

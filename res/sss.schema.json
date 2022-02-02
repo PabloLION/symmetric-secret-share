@@ -19,7 +19,7 @@
   "source_url": {
     "type": "string",
     "description": "URL of the source file",
-    "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.env"
+    "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env"
   },
   "target_rel_path": {
     "type": "string",

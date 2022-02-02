@@ -5,7 +5,6 @@ EXAMPLE_KEYCHAIN_DICT = {
     "version": f"{__version__}",
     "keys": {
         "sss-example": {
-            "url": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.encrypted",
             "key": "This key contains 32 characters.",
             "comment": "Some comment. This key is used for testing.",
         }

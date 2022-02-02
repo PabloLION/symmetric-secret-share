@@ -13,25 +13,7 @@ Share secret files via github with symmetric encryption
 1. Install CLI
 2. Have a global config for the secret keys.
 3. Setup a config file in the target folder.
-
-### test
-
-- key: `This key contains 32 characters.`
-- "source_url": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.encrypted"
-- Default test commands:
-
-  - load file from the URL
-
-  ```bash
-  sss inject -k "This key contains 32 characters." ./tests/injection-target
-  sss inject ./tests/injection-target -k "I'm a string with 32 characters." # should fail
-  ```
-
-  - share file to the URL (need to upload manually)
-
-  ```bash
-  sss share -k "This key contains 32 characters." ./tests/injection-target
-  ```
+4. Check the [Tutorial](#Tutorial) and `sss --help`
 
 ### fetch
 
@@ -48,3 +30,35 @@ Share secret files via github with symmetric encryption
 
 - Created for [Artcoin-Network](https://github.com/Artcoin-Network/), modifying the private repo[Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
 - Read More in [dev-docs.md](./docs/dev-docs.md)
+
+## Tutorial
+
+In this tutorial, we are going to use these concepts:
+
+- key: `This key contains 32 characters.`
+- URL: `https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.encrypted`
+- key chain: Need to initialize with `sss key`
+
+### Setup a local key chain
+
+```bash
+sss key # create/edit
+sss key -c # clear all keys
+```
+
+### load file from URL
+
+```bash
+sss inject -k "This key contains 32 characters." ./tests/injection-target
+sss inject ./tests/injection-target -k "I'm a string with 32 characters." # fail
+sss inject ./tests/injection-target # use key from initial key chain
+```
+
+### share file to the URL
+
+Need to upload manually #TODO
+
+```bash
+sss share -k "This key contains 32 characters." ./tests/injection-target
+sss share ./tests/injection-target # use key from initial key chain
+```

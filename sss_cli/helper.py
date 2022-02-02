@@ -1,7 +1,23 @@
+import enum
 import json
 from pathlib import Path
 
 import typer
+
+from sss_cli import APP_NAME
+
+USE_KEYCHAIN = enum.auto()
+
+
+class NoKeychainException(Exception):
+    pass
+
+
+def get_keychain() -> Path:
+    app_dir = Path(typer.get_app_dir(APP_NAME))
+    app_dir.mkdir(parents=True, exist_ok=True)
+    keychain: Path = app_dir / "keychain.json"
+    return keychain
 
 
 def throw_error(err_msg: str) -> None:

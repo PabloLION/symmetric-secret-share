@@ -24,6 +24,7 @@ Share secret files via github with symmetric encryption
 
   ```bash
   sss inject -k "This key contains 32 characters." ./tests/injection-target
+  sss inject ./tests/injection-target -k "I'm a string with 32 characters." # should fail
   ```
 
   - share file to the URL (need to upload manually)

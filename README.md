@@ -1,6 +1,6 @@
 # symmetric-secrete-share
 
-Share secret files via github with symmetric encryption
+Share secret files via github with symmetric encryption ed25519.
 
 - Temporarily supports only `.env` files.
 - Used to store secrets and configurations.
@@ -12,7 +12,7 @@ Share secret files via github with symmetric encryption
 
 1. Install CLI
 2. Have a global config for the secret keys.
-3. Setup a config file in the target folder.
+3. Setup a config file.
 4. Check the [Tutorial](#Tutorial) and `sss --help`
 
 ### fetch
@@ -48,17 +48,20 @@ sss key -c # clear all keys
 
 ### load file from URL
 
+These code will generate a `test/injection/target.env` like `test/example.env`
+
 ```bash
-sss inject -k "This key contains 32 characters." ./tests/injection-target
-sss inject ./tests/injection-target -k "I'm a string with 32 characters." # fail
-sss inject ./tests/injection-target # use key from initial key chain
+sss inject ./tests/injection/sss.json # use key from initial key chain
+sss inject -k "This key contains 32 characters." ./tests/injection/sss.json
+sss inject ./tests/injection/sss.json -k "I'm a string with 32 characters." # fail
 ```
 
 ### share file to the URL
 
 Need to upload manually #TODO
+These code will generate a `test/injection/target.encrypted`
 
 ```bash
-sss share -k "This key contains 32 characters." ./tests/injection-target
-sss share ./tests/injection-target # use key from initial key chain
+sss share ./tests/injection/sss.json # use key from initial key chain
+sss share -k "This key contains 32 characters." ./tests/injection/sss.json
 ```

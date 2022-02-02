@@ -20,6 +20,6 @@
 10. GUI: tkinter to select folder
 11. Last key rotation
 12. (DONE)Select a config file, not folder.
-13. throw_error
+13. (DONE)throw_error,check_exist
 14. settings version confirm
 15. (DONE)use absolute path (no $SOME_PATH/./../file)

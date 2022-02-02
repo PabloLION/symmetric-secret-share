@@ -22,24 +22,11 @@ def get_keychain() -> Path:
     return keychain
 
 
-def throw_error(err_msg: str) -> None:
-    typer.secho(err_msg, fg="red")
-    typer.Abort()
-    raise Exception(err_msg)
-
-
 def write_file(file_path: Path, file_content: str) -> None:
 
     with open(file_path, "wb") as env_file:
         env_file.write(file_content.encode("utf-8"))
     typer.secho(f"Successfully write file to {file_path}", fg="green")
-
-
-def check_exist(file_path: Path) -> None:
-    if not file_path.exists():
-        throw_error(
-            f"path `{file_path}` does not exist, must use an existing config_path"
-        )
 
 
 @dataclass(frozen=True)
@@ -57,7 +44,9 @@ class Config_Manager:
         self.sss_version: str = NOT_SET
 
     def load(self, config_path: Path) -> None:
-        check_exist(config_path)
+        if not config_path.exists():
+            typer.secho(f"Config file not found: {config_path}", fg="red")
+            raise typer.Abort()
         folder = Path(config_path).parent
         with open(config_path, "r") as config_file:
             config_dict = json.loads(config_file.read())

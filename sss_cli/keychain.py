@@ -8,7 +8,6 @@ from sss_cli.helper import (
     NoKeychainException,
     config,
     get_keychain,
-    throw_error,
 )
 
 
@@ -41,6 +40,7 @@ def get_real_key(key: str) -> str:
         try:
             key = load_key_from_chain(config.config_id)
         except NoKeychainException:
-            throw_error("No keychain found, please run `sss key` first")
+            typer.secho("No keychain found, please run `sss key` first", fg="red")
+            raise typer.Abort()
 
     return key

@@ -5,7 +5,7 @@ import typer
 from sss_cli.keychain import get_real_key
 
 from .encryption import decrypt
-from .helper import USE_KEYCHAIN, config, throw_error, write_file
+from .helper import USE_KEYCHAIN, config, write_file
 from .remote import fetch_encrypted
 
 

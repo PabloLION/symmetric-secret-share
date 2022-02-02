@@ -20,3 +20,4 @@
 10. GUI: tkinter to select folder
 11. Last key rotation
 12. Select a config file / folder.
+13. throw_error

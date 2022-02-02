@@ -1,11 +1,10 @@
-from pathlib import Path
 import typer
 
-from sss_cli import APP_NAME, __version__
+from sss_cli import __version__
+from sss_cli._string_template import EXAMPLE_KEYCHAIN
 from sss_cli.helper import USE_KEYCHAIN, get_keychain
 from sss_cli.inject import inject
 from sss_cli.share import share
-from sss_cli._string_template import EXAMPLE_KEYCHAIN
 
 app = typer.Typer()
 
@@ -13,7 +12,7 @@ app = typer.Typer()
 @app.command(name="inject")
 def cmd_inject(
     repo_path: str = typer.Argument(..., help="Path to your repo"),
-    key: str = typer.Option(..., "-k", "--key", help="Password as plaintext"),
+    key: str = typer.Option(USE_KEYCHAIN, "-k", "--key", help="Password as plaintext"),
 ):
     """Inject the decrypted cypher to correct path in repo."""
     inject(repo_path, key)
@@ -21,8 +20,8 @@ def cmd_inject(
 
 @app.command("helper")
 def helper():
-    app_dir = typer.get_app_dir(APP_NAME)
-    print(f"app_dir: {app_dir}")
+    a = {"b": 1}
+    a.get("b")
 
 
 @app.command("key")

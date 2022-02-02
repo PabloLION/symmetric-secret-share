@@ -1,38 +1,33 @@
-import json
 import os
 from pathlib import Path
 
 import typer
 
-from .helper import config, throw_error, write_file, load_config
+from sss_cli.keychain import get_real_key
+
 from .encryption import decrypt
+from .helper import USE_KEYCHAIN, config, load_config, throw_error, write_file
 from .remote import fetch_encrypted
 
 
 def inject(
     target_path: str = typer.Argument(..., help="Path to your repo"),
-    key: str = typer.Option(..., "-k", "--key", help="Password as plaintext"),
+    key: str = typer.Option(USE_KEYCHAIN, "-k", "--key", help="Password as plaintext"),
 ):
     """Inject the decrypted cypher to correct path in repo."""
 
-    typer.secho("TODO: Currently no decrypt. Key not used", fg="yellow")
     load_config(Path(target_path))
-    plain_secret = decrypt_cypher(config.source, key)
+    # CLI options
+    key = get_real_key(key)
+    cypher_string = fetch_encrypted(config.source)
+    plain_secret = decrypt(cypher_string, key)
+
     inject_files(
         folder_path=target_path,
         file_rel_path=config.target,
         file_content=plain_secret,
     )
     return 0
-
-
-def decrypt_cypher(source_url: str, key: str) -> str:
-
-    typer.echo(f"decrypting cypher with {key}.")
-    cypher_string = fetch_encrypted(source_url)
-    # TODO: decrypt cypher_string
-    plain_secret = decrypt(cypher_string, key)
-    return plain_secret
 
 
 def inject_files(folder_path: str, file_rel_path: str, file_content: str) -> None:

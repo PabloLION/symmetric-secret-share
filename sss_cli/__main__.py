@@ -12,8 +12,8 @@ app = typer.Typer()
 
 @app.command(name="inject")
 def cmd_inject(
-    repo_path: str = typer.Argument(..., help="path to your repo"),
-    key: str = typer.Option(..., "-k", "--key", help="password as plaintext"),
+    repo_path: str = typer.Argument(..., help="Path to your repo"),
+    key: str = typer.Option(..., "-k", "--key", help="Password as plaintext"),
 ):
     """Inject the decrypted cypher to correct path in repo."""
     inject(repo_path, key)
@@ -28,10 +28,10 @@ def helper():
 @app.command("key")
 def set_key(
     clear: boolean = typer.Option(
-        False, "-c", "--clear", help="clear all keys in keychain"
+        False, "-c", "--clear", help="Clear all keys in keychain"
     ),
     force: boolean = typer.Option(
-        False, "-f", "--force", help="force clear all keys in keychain"
+        False, "-f", "--force", help="Force clear all keys in keychain"
     ),
 ):
     """Edit keys in keychain."""
@@ -47,14 +47,14 @@ def set_key(
         return
     if not keychain.is_file():
         keychain.write_text(EXAMPLE_KEYCHAIN)
-    typer.secho("Opening keychain config file.", fg="green")
+    typer.secho("Please edit keychain config file.", fg="green")
     typer.launch(str(keychain))
 
 
 @app.command("share")
 def cmd_share(
-    target_path: str = typer.Argument(..., help="path to your repo"),
-    key: str = typer.Option(..., "-k", "--key", help="password as plaintext"),
+    target_path: str = typer.Argument(..., help="Path to your repo"),
+    key: str = typer.Option(..., "-k", "--key", help="Password as plaintext"),
 ):
     """Update the cypher file by encrypting the secret file."""
     share(target_path, key)

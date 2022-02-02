@@ -6,8 +6,8 @@ from .encryption import encrypt
 
 
 def share(
-    target_path: str = typer.Argument(..., help="path to your repo"),
-    key: str = typer.Option(..., "-k", "--key", help="password as plaintext"),
+    target_path: str = typer.Argument(..., help="Path to your repo"),
+    key: str = typer.Option(..., "-k", "--key", help="Password as plaintext"),
 ):
     """Update the cypher file by encrypting the secret file."""
     typer.secho("TODO: Currently no encrypt. Key not used", fg="yellow")

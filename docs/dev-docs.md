@@ -13,13 +13,13 @@
    1. check [grempe/secrets.js](https://github.com/grempe/secrets.js)
 4. (DONE)Add a way to edit the encrypted file
 5. (DONE)Add more content like `asset_name`, `decimal_digits`.
-6. (FAIL)This is opening a folder, not selecting one: Use GUI to select folder, see [typer official](https://typer.tiangolo.com/tutorial/launch/#locating-a-file).
+6. (NONE)This is opening a folder, not selecting one: Use GUI to select folder, see [typer official](https://typer.tiangolo.com/tutorial/launch/#locating-a-file).
 7. (DONE)Add key to ~~system variable~~ a local key chain and use it, instead of writing it every time.
 8. (DONE)Use a descriptive config file in each repo to specify the path of the encrypted file, also supporting CLI execution from the external repo folder.
 9. (DONE)Fetch file from cloud instead from this repo locally. (from local will require git pull every time before running it)
-10. GUI: tkinter to select folder
+10. (NONE)GUI: tkinter to select config file
 11. Last key rotation
 12. (DONE)Select a config file, not folder.
 13. (DONE)throw_error,check_exist
-14. settings version confirm
+14. (DONE)settings version confirm
 15. (DONE)use absolute path (no $SOME_PATH/./../file)

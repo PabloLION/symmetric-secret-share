@@ -8,5 +8,4 @@ def fetch_encrypted(url):
         return r
     except:
         typer.secho(f"Error fetching {url}", fg="red")
-        typer.Abort()
-        raise Exception(f"Error fetching {url}")
+        raise typer.Exit(code=1)

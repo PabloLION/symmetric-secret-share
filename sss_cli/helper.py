@@ -5,7 +5,7 @@ from pathlib import Path
 
 import typer
 
-from sss_cli import APP_NAME
+from sss_cli import APP_NAME, __version__
 
 USE_KEYCHAIN = str(enum.auto())
 NOT_SET = str(enum.auto())
@@ -46,10 +46,14 @@ class Config_Manager:
     def load(self, config_path: Path) -> None:
         if not config_path.exists():
             typer.secho(f"Config file not found: {config_path}", fg="red")
-            raise typer.Abort()
+            raise typer.Exit(code=1)
         folder = Path(config_path).parent
         with open(config_path, "r") as config_file:
             config_dict = json.loads(config_file.read())
+
+        self.sss_version = config_dict["sss_version"]
+        self.check_version()
+
         file_maps = []
         for file in config_dict["files"]:
             abs_target: Path = folder / file["target"]
@@ -58,7 +62,14 @@ class Config_Manager:
         self.files = file_maps
         self.key_identifier = config_dict["key_identifier"]
         self.last_key_rotation = config_dict["last_key_rotation"]
-        self.sss_version = config_dict["sss_version"]
+
+    def check_version(self):
+        if not self.sss_version == __version__:
+            typer.secho(
+                f"sss_cli version {__version__} and config version {self.sss_version} mismatch",
+                fg="red",
+            )
+            raise typer.Exit(code=1)
 
 
 config = Config_Manager()

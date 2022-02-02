@@ -1,5 +1,22 @@
 # Development Documentation
 
+## Version
+
+### 0.0.5
+
+- Publish to PyPI
+
+### 0.0.4
+
+- Add `poetry`
+- Add and chang json schema many times.
+- Finish DEV LOG 7~15.
+
+### 0.0.2
+
+- Work in [Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
+- Finish DEV LOG 1~6.
+
 ## DEV LOG
 
 1. (DONE) Add a script to generate different files from one same file. We always use `.env`

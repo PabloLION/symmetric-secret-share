@@ -1,8 +1,8 @@
 # symmetric-secrete-share
 
-Share secret files via github with symmetric encryption ed25519.
+CLI to share secret files via github with symmetric encryption ed25519.
 
-- **IMPORTANT: The secret files at should be git-ignored.**
+- **IMPORTANT: The secret files at should be git-ignored to avoid oblivious leakage.**
 - Temporarily supports only text files (only tested with `.env`).
 - Best used to store secrets and configurations.
 - Key should be a 32-byte long string.
@@ -10,9 +10,9 @@ Share secret files via github with symmetric encryption ed25519.
 
 ## Use
 
-1. Install CLI
-2. Check the [Tutorial](#Tutorial) and `sss --help`
-3. Recommend to set a global key with `sss key`
+1. Install CLI `pip3 install symmetric-secrete-share`.
+2. Check the [Tutorial Chapter](#Tutorial) and `sss --help`.
+3. Recommended: set up a global key chain with `sss key`, or you would have to input key every time.
 4. Get a config like `$REPO_ROOT/test/injection/sss.json`. The json-schema inside will help you write it.
 
 ### inject
@@ -26,8 +26,6 @@ Share secret files via github with symmetric encryption ed25519.
 
 ### share
 
-- **IMPORTANT: The generated secret (`*.encrypted`) at should be git-ignored to avoid oblivious leakage.**
-
 1. Run CLI
 
    ```bash
@@ -39,8 +37,9 @@ Share secret files via github with symmetric encryption ed25519.
 
 ## Contribute
 
-- Created for [Artcoin-Network](https://github.com/Artcoin-Network/), modifying the private repo[Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
-- Read More in [dev-docs.md](./docs/dev-docs.md)
+- Created for [Artcoin-Network](https://github.com/Artcoin-Network/), modifying the private repo [Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
+- To contribute, please fork the repo and run `poetry install`.
+- Read more in [dev-docs.md](./docs/dev-docs.md)
 
 ## Tutorial
 

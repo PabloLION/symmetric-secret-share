@@ -14,7 +14,7 @@
 4. (DONE)Add a way to edit the encrypted file
 5. (DONE)Add more content like `asset_name`, `decimal_digits`.
 6. (FAIL)This is opening a folder, not selecting one: Use GUI to select folder, see [typer official](https://typer.tiangolo.com/tutorial/launch/#locating-a-file).
-7. Add key to system variable and use it, instead of writing it every time.
+7. (DONE)Add key to ~~system variable~~ a local key chain and use it, instead of writing it every time.
 8. (DONE)Use a descriptive config file in each repo to specify the path of the encrypted file, also supporting CLI execution from the external repo folder.
 9. (DONE)Fetch file from cloud instead from this repo locally. (from local will require git pull every time before running it)
 10. GUI: tkinter to select folder

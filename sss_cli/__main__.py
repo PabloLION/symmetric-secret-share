@@ -30,15 +30,25 @@ def set_key(
     clear: boolean = typer.Option(
         False, "-c", "--clear", help="clear all keys in keychain"
     ),
+    force: boolean = typer.Option(
+        False, "-f", "--force", help="force clear all keys in keychain"
+    ),
 ):
-    app_dir = typer.get_app_dir(APP_NAME)
-    app_dir_path = Path(app_dir)
-    app_dir_path.mkdir(parents=True, exist_ok=True)
-    keychain_path: Path = Path(app_dir) / "keychain.json"
-    if not keychain_path.is_file():
-        keychain_path.write_text(EXAMPLE_KEYCHAIN)
-    typer.echo("Opening keychain config file.")
-    typer.launch(str(keychain_path))
+    """Edit keys in keychain."""
+    app_dir = Path(typer.get_app_dir(APP_NAME))
+    app_dir.mkdir(parents=True, exist_ok=True)
+    keychain: Path = app_dir / "keychain.json"
+    if clear:
+        if not force:
+            typer.confirm("Are you sure you want to delete it?", abort=True)
+        if keychain.is_file():
+            keychain.unlink()
+            typer.secho("Cleared keychain.", fg="green")
+        return
+    if not keychain.is_file():
+        keychain.write_text(EXAMPLE_KEYCHAIN)
+    typer.secho("Opening keychain config file.", fg="green")
+    typer.launch(str(keychain))
 
 
 @app.command("share")

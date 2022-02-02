@@ -9,21 +9,6 @@ from sss_cli.share import share
 app = typer.Typer()
 
 
-@app.command(name="inject")
-def cmd_inject(
-    repo_path: str = typer.Argument(..., help="Path to your repo"),
-    key: str = typer.Option(USE_KEYCHAIN, "-k", "--key", help="Password as plaintext"),
-):
-    """Inject the decrypted cypher to correct path in repo."""
-    inject(repo_path, key)
-
-
-@app.command("helper")
-def helper():
-    a = {"b": 1}
-    a.get("b")
-
-
 @app.command("key")
 def set_key(
     clear: bool = typer.Option(
@@ -50,8 +35,23 @@ def set_key(
 
 @app.command("share")
 def cmd_share(
-    target_path: str = typer.Argument(..., help="Path to your repo"),
+    config_path: str = typer.Argument(..., help="Path to your repo"),
     key: str = typer.Option(USE_KEYCHAIN, "-k", "--key", help="Password as plaintext"),
 ):
     """Update the cypher file by encrypting the secret file."""
-    share(target_path, key)
+    share(config_path, key)
+
+
+@app.command(name="inject")
+def cmd_inject(
+    config_path: str = typer.Argument(..., help="Path to your repo"),
+    key: str = typer.Option(USE_KEYCHAIN, "-k", "--key", help="Password as plaintext"),
+):
+    """Inject the decrypted cypher to correct path in repo."""
+    inject(config_path, key)
+
+
+@app.command("helper")
+def helper():
+    a = {"b": 1}
+    a.get("b")

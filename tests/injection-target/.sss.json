@@ -7,8 +7,8 @@
   "last_key_rotation": 0,
   "files": [
     {
-      "source_url": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.encrypted",
-      "target_rel_path": "./target.env"
+      "source": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.encrypted",
+      "target": "./target.env"
     }
   ]
 }

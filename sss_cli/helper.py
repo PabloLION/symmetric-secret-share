@@ -1,5 +1,6 @@
 import enum
 import json
+from dataclasses import dataclass
 from pathlib import Path
 
 import typer
@@ -27,7 +28,7 @@ def throw_error(err_msg: str) -> None:
     raise Exception(err_msg)
 
 
-def write_file(file_path: str, file_content: str) -> None:
+def write_file(file_path: Path, file_content: str) -> None:
 
     with open(file_path, "wb") as env_file:
         env_file.write(file_content.encode("utf-8"))
@@ -37,55 +38,38 @@ def write_file(file_path: str, file_content: str) -> None:
 def check_exist(file_path: Path) -> None:
     if not file_path.exists():
         throw_error(
-            f"path `{file_path}` does not exist, must use an existing repo_path"
+            f"path `{file_path}` does not exist, must use an existing config_path"
         )
 
 
-def load_config(folder_path: Path) -> None:
-    check_exist(folder_path)
-    with open(folder_path / ".sss.json", "r") as config_file:
-        config_string = config_file.read()
-    config_dict = json.loads(config_string)
-    config.source = config_dict.get("source_url")
-    config.target = config_dict.get("target_rel_path")
-    config.config_id = config_dict.get("config_id")
+@dataclass(frozen=True)
+class File_Map:
+    source: str
+    target: Path
 
 
 class Config_Manager:
-    def __init__(self):
-        self._source = NOT_SET
-        self._target = NOT_SET
-        self._config_id = NOT_SET
+    def __init__(self) -> None:
+        self.config_id: str = NOT_SET
+        self.files: list[File_Map] = [File_Map(source=NOT_SET, target=Path())]
+        self.key_identifier: str = NOT_SET
+        self.last_key_rotation: int = 0
+        self.sss_version: str = NOT_SET
 
-    @property
-    def source(self):
-        """Get source path."""
-        return self._source
-
-    @source.setter
-    def source(self, source: str):
-        """Set source path."""
-        self._source = source
-
-    @property
-    def target(self):
-        """Get target path."""
-        return self._target
-
-    @target.setter
-    def target(self, target: str):
-        """Set target path."""
-        self._target = target
-
-    @property
-    def config_id(self):
-        """Get config id."""
-        return self._config_id
-
-    @config_id.setter
-    def config_id(self, config_id: str):
-        """Set config id."""
-        self._config_id = config_id
+    def load(self, config_path: Path) -> None:
+        check_exist(config_path)
+        folder = Path(config_path).parent
+        with open(config_path, "r") as config_file:
+            config_dict = json.loads(config_file.read())
+        file_maps = []
+        for file in config_dict["files"]:
+            abs_target: Path = folder / file["target"]
+            file_maps += [File_Map(file["source"], abs_target.absolute())]
+        self.config_id = config_dict["config_id"]
+        self.files = file_maps
+        self.key_identifier = config_dict["key_identifier"]
+        self.last_key_rotation = config_dict["last_key_rotation"]
+        self.sss_version = config_dict["sss_version"]
 
 
 config = Config_Manager()

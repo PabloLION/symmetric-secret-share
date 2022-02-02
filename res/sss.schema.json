@@ -1,59 +1,64 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "sss.schema.json@latest",
-  "title": "symmetric_secrete_share_schema",
+  "$schema": "http://json-schema.org/schema",
   "description": "Schema for symmetric_secrete_share config file",
+  "title": "symmetric_secrete_share_schema",
   "type": "object",
-  "required": [
-    "files",
-    "key_identifier",
-    "last_key_rotation",
-    "sss_version"
-  ],
+  "$defs": {
+    "file": {
+      "properties": {
+        "source": {
+          "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env",
+          "description": "URL of the source file",
+          "type": "string"
+        },
+        "target": {
+          "default": "./target.txt",
+          "description": "Relative(to the folder of config file) path to the target file",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "target"
+      ]
+    }
+  },
   "properties": {
-    "sss_version:": {
-      "type": "string",
-      "enum": [
-        "0.0.3"
-      ],
-      "description": "Version of symmetric_secrete_share"
-    },
-    "key_identifier": {
-      "type": "string",
-      "description": "The key identifier for the symmetric secret share"
-    },
-    "last_key_rotation": {
-      "type": "integer",
-      "description": "Last key rotation time",
-      "default": 0
+    "config_id": {
+      "description": "The config id",
+      "type": "string"
     },
     "files": {
-      "type": "array",
       "description": "List of files to encrypt",
       "items": {
         "$ref": "#/$defs/file",
         "minLength": 1
-      }
+      },
+      "type": "array"
+    },
+    "key_identifier": {
+      "description": "The key identifier for the symmetric secret share",
+      "type": "string"
+    },
+    "last_key_rotation": {
+      "default": 0,
+      "description": "Last key rotation time",
+      "type": "integer"
+    },
+    "sss_version": {
+      "description": "Version of symmetric_secrete_share",
+      "enum": [
+        "0.0.3"
+      ],
+      "type": "string"
     }
   },
-  "$defs": {
-    "file": {
-      "required": [
-        "source_url",
-        "target_rel_path"
-      ],
-      "properties": {
-        "source_url": {
-          "type": "string",
-          "description": "URL of the source file",
-          "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env"
-        },
-        "target_rel_path": {
-          "type": "string",
-          "description": "Relative path to the target file",
-          "default": "./target.txt"
-        }
-      }
-    }
-  }
+  "required": [
+    "files",
+    "key_identifier",
+    "last_key_rotation",
+    "sss_version",
+    "config_id"
+  ]
 }

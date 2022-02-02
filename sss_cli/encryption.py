@@ -7,6 +7,7 @@ def encrypt(message: str, key: str) -> str:
     """
     Encrypt string with key
     """
+    # TODO: add a try catch here or outside for nacl.exceptions.CryptoError: Decryption failed. Ciphertext failed verification
     box = nacl.secret.SecretBox(codecs.encode(key, "utf-8"))
     encrypted = box.encrypt(codecs.encode(message, "utf-8"))
     b64 = codecs.encode(encrypted, "base64").decode("utf-8")
@@ -17,14 +18,8 @@ def decrypt(encrypted: str, key: str) -> str:
     """
     Encrypt string with key
     """
-    print(key)
-    print(len(key))
     box = nacl.secret.SecretBox(codecs.encode(key, "utf-8"))
-    print(encrypted)
-    print(len(encrypted))
     byte_msg = codecs.decode(bytes(encrypted, "utf-8"), "base64")
-    print(byte_msg)
-    print(len(byte_msg))
     decrypted = box.decrypt(byte_msg).decode("utf-8")
     return decrypted
 

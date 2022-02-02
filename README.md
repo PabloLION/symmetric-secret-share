@@ -6,6 +6,7 @@ Share secret files via github with symmetric encryption
 - Used to store secrets and configurations.
 - **IMPORTANT: The secret files at should be git-ignored.**
 - Key should be a 32-byte long string.
+- (FAQ) If you share with GitHub, please notice that there's a 5 minutes cool-down on refreshing. [Details](https://stackoverflow.com/questions/46551413/github-not-update-raw-after-commit)
 
 ## Use
 
@@ -15,8 +16,21 @@ Share secret files via github with symmetric encryption
 
 ### test
 
-key: `This key contains 32 characters.`
-"source_url": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.encrypted"
+- key: `This key contains 32 characters.`
+- "source_url": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/sample.encrypted"
+- Default test commands:
+
+  - load file from the URL
+
+  ```bash
+  sss inject -k "This key contains 32 characters." ./tests/injection-target
+  ```
+
+  - share file to the URL (need to upload manually)
+
+  ```bash
+  sss share -k "This key contains 32 characters." ./tests/injection-target
+  ```
 
 ### fetch
 

@@ -1,24 +1,24 @@
 # symmetric-secrete-share
 
-CLI to share secret files via github with symmetric encryption ed25519.
+Python CLI to share secret files via github with symmetric encryption ed25519.
 
-- **IMPORTANT: The secret files at should be git-ignored to avoid oblivious leakage.**
+- **IMPORTANT: The secret files should be git-ignored to avoid oblivious leakage.**
 - Temporarily supports only text files (only tested with `.env`).
-- Best used to store secrets and configurations.
+- Best used to store/share secrets and configurations.
 - Key should be a 32-byte long string.
-- (FAQ) If you share with GitHub, please notice that there's a 5 minutes cool-down on refreshing. [Details](https://stackoverflow.com/questions/46551413/github-not-update-raw-after-commit)
+- (FAQ) If you share with GitHub (like the example), please notice that there's a 5 minutes cool-down on refreshing. [Detail](https://stackoverflow.com/questions/46551413/github-not-update-raw-after-commit)
 
 ## Use
 
-1. Install CLI `pip3 install symmetric-secrete-share`.
+1. Install CLI: `pip3 install symmetric-secrete-share`.
 2. Check the [Tutorial Chapter](#Tutorial) and `sss --help`.
-3. Recommended: set up a global key chain with `sss key`, or you would have to input key every time.
-4. Get a config like `$REPO_ROOT/test/injection/sss.json`. The json-schema inside will help you write it.
+3. Recommended: set up a global key chain with `sss key`, or you would have to input a key every time.
+4. Get a config like `$REPO_ROOT/tests/injection/sss.json`. The JSON-schema in `$schema` of this file will help you write the config file.
 
 ### inject
 
-1. Get a config file like `$REPO_ROOT/test/injection/sss.json`. The json-schema inside will help you write it.
-2. run CLI
+1. Get a config file like `$REPO_ROOT/tests/injection/sss.json`.
+2. Run CLI
 
    ```bash
    sss inject [-k TEXT] CONFIG_PATH
@@ -37,17 +37,17 @@ CLI to share secret files via github with symmetric encryption ed25519.
 
 ## Contribute
 
-- Created for [Artcoin-Network](https://github.com/Artcoin-Network/), modifying the private repo [Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
+- Created for [Artcoin-Network](https://github.com/Artcoin-Network/), modifying a private repo [Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
 - To contribute, please fork the repo and run `poetry install`.
-- Read more in [dev-docs.md](./docs/dev-docs.md)
+- Read more in [CONTRIBUTE.md](./docs/CONTRIBUTE.md)
 
 ## Tutorial
 
-In this tutorial, all commands are assumed to run under the `$REPO_ROOT`. We are going to use these concepts:
+In this tutorial, all commands are assumed to be run under the `$REPO_ROOT`. We are going to use these concepts and variables:
 
+- key chain: A file to share key, initialized with `sss key`.
 - key: `This key contains 32 characters.`.
 - URL: `https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.encrypted`.
-- key chain: A file to share key, initialized with `sss key`.
 
 We are going to play with the folder `test/injection`, with the `sss.json` file inside it. To share your own file, a new config file should be created.
 

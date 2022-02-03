@@ -1,18 +1,16 @@
-# Development Documentation
+# Version
 
-## Version
-
-### 0.0.5
+## 0.0.5
 
 - Publish to PyPI
 
-### 0.0.4
+## 0.0.4
 
 - Add `poetry`
 - Add and chang json schema many times.
 - Finish DEV LOG 7~15.
 
-### 0.0.2
+## 0.0.2
 
 - Work in [Artcoin-Network/artificial-dev-config](https://github.com/Artcoin-Network/artificial-dev-config).
 - Finish DEV LOG 1~6.
@@ -30,7 +28,7 @@
 8. (DONE)Use a descriptive config file in each repo to specify the path of the encrypted file, also supporting CLI execution from the external repo folder.
 9. (DONE)Fetch file from cloud instead from this repo locally. (from local will require git pull every time before running it)
 10. (NONE)GUI: tkinter to select config file
-11. (MOVE)Last key rotation
+11. (KILL)Last key rotation
 12. (DONE)Select a config file, not folder.
 13. (DONE)throw_error,check_exist
 14. (DONE)settings version confirm

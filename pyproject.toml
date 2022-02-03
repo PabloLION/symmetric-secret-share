@@ -1,6 +1,6 @@
 [tool.poetry]
 authors = ["Pablion <36828324+Pablion@users.noreply.github.com>"]
-description = "Share secret files via github with symmetric encryption ed25519."
+description = "Python CLI to share secret files via github with symmetric encryption ed25519."
 license = "Apache-2.0"
 name = "symmetric-secrete-share"
 packages = [

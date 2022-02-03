@@ -1,3 +1,4 @@
+import nacl.utils
 import typer
 
 from sss_cli import __version__
@@ -17,9 +18,17 @@ def set_key(
     force: bool = typer.Option(
         False, "-f", "--force", help="Force clear all keys in keychain"
     ),
+    generate: bool = typer.Option(
+        False, "-g", "--generate", help="Generate a new 32 bytes key"
+    ),
 ):
     """Edit keys in keychain."""
     keychain = get_keychain()
+    if generate:
+        key = nacl.utils.random(32)
+        typer.secho(f"Generated new key:", fg="green")
+        typer.secho(f"{key.hex()}", fg="bright_black", bg="white")
+        raise typer.Exit(code=0)
     if clear:
         if not force:
             typer.confirm("Are you sure you want to delete it?", abort=True)

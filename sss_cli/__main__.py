@@ -1,4 +1,5 @@
-import nacl.utils
+from nacl.encoding import Base64Encoder
+from nacl.utils import random, randombytes_deterministic
 import typer
 
 from sss_cli import __version__
@@ -25,9 +26,10 @@ def set_key(
     """Edit keys in keychain."""
     keychain = get_keychain()
     if generate:
-        key = nacl.utils.random(32)
+        key = randombytes_deterministic(24, random(), Base64Encoder).decode("utf-8")
+        print(len(key))
         typer.secho(f"Generated new key:", fg="green")
-        typer.secho(f"{key.hex()}", fg="bright_black", bg="white")
+        typer.secho(f"{key}", fg="bright_black", bg="white")
         raise typer.Exit(code=0)
     if clear:
         if not force:

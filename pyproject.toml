@@ -7,7 +7,7 @@ packages = [
   {include = "sss_cli"},
 ]
 readme = "README.md"
-version = "0.0.5"
+version = "0.0.7"
 
 [tool.poetry.urls]
 documentation = "https://github.com/PabloLION/symmetric-secrete-share"

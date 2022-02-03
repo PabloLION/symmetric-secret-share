@@ -1,5 +1,10 @@
 # Version
 
+## 0.0.7
+
+- Feature: Generate new 32-byte ASCII key
+- Polish docs
+
 ## 0.0.5
 
 - Publish to PyPI

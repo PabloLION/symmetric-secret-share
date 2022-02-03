@@ -37,7 +37,7 @@ def set_key(
         if keychain.is_file():
             keychain.unlink()
             typer.secho("Cleared keychain.", fg="green")
-        return
+        raise typer.Exit(code=0)
     if not keychain.is_file():
         keychain.write_text(EXAMPLE_KEYCHAIN)
     typer.secho("Please edit keychain config file.", fg="green")

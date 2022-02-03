@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/res/sss.schema.json",
   "$dev_schema": "./../../res/sss.schema.json",
-  "sss_version": "0.0.5",
+  "sss_version": "0.0.7",
   "config_id": "sss-example",
   "key_identifier": "test_key",
   "last_key_rotation": 0,

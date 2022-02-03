@@ -5,7 +5,7 @@ Python CLI to share secret files via github with symmetric encryption ed25519.
 - **IMPORTANT: The secret files should be git-ignored to avoid oblivious leakage.**
 - Temporarily supports only text files (only tested with `.env`).
 - Best used to store/share secrets and configurations.
-- Key should be a 32-byte long string, meanly 32 ASCII or two-byte UTF-8 characters.
+- Key should be a 32-byte long string, meanly, 32 ASCII, 16 two-byte UTF-8 or 8 four-byte UTF-8 characters.
 - (FAQ) If you share with GitHub (like the example), please notice that there's a 5 minutes cool-down on refreshing. [Detail](https://stackoverflow.com/questions/46551413/github-not-update-raw-after-commit)
 
 ## Use
@@ -46,9 +46,8 @@ Python CLI to share secret files via github with symmetric encryption ed25519.
 ## Security
 
 - There are `256**32==1,15e+77` keys of 32 of ASCII (one-byte utf-8 string).
-- To generate this kind of key, you can use `sss key --generate`.
-- There are `256**64==1.34e+154` keys of 64 of ASCII (two-byte utf-8 string).
-- To generate two-byte utf-8 string, a possibility is to use [onlineutf8tools](https://onlineutf8tools.com/generate-random-utf8?&length=32&count=8&bytes-per-char=2)
+- To generate ASCII key, you can use `sss key --generate`.
+- To generate two-byte utf-8 string, a possibility is to use [onlineutf8tools](https://onlineutf8tools.com/generate-random-utf8?&length=16&count=8&bytes-per-char=2)
 
 ## Contribute
 

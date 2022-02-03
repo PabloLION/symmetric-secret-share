@@ -42,6 +42,7 @@ def test():
     fake_key = "4}M?XW]:`TqSP9/m2RW]l-Tatx0bFVa,"  # 32 one-byte characters
     fake_key = "ǕèǶ¿§ܚøө½ߊƎǏƵǪИ"  # 32 two-byte characters
     fake_key = "ݒȄԸưŘ͎ɡҜȐѽژ̎ʶܐڝؔ"
+    fake_key = "񲵁𼆁󑘛񐮰𧊳񲐋𛩰􊼗"
     msg = "I'm a secret message."
 
     encrypted = encrypt(msg, fake_key)

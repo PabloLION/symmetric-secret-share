@@ -2,21 +2,21 @@
 authors = ["Pablion <36828324+Pablion@users.noreply.github.com>"]
 description = "Python CLI to share secret files via github with symmetric encryption ed25519."
 license = "Apache-2.0"
-name = "symmetric-secrete-share"
+name = "symmetric-secret-share"
 packages = [
   {include = "sss_cli"},
 ]
 readme = "README.md"
-version = "0.0.7"
+version = "0.0.8"
 
 [tool.poetry.urls]
-documentation = "https://github.com/PabloLION/symmetric-secrete-share"
-homepage = "https://github.com/PabloLION/symmetric-secrete-share"
-repository = "https://github.com/PabloLION/symmetric-secrete-share"
+documentation = "https://github.com/PabloLION/symmetric-secret-share"
+homepage = "https://github.com/PabloLION/symmetric-secret-share"
+repository = "https://github.com/PabloLION/symmetric-secret-share"
 
 [tool.poetry.scripts]
 sss = "sss_cli.__main__:app"
-symmetric-secrete-share = "sss_cli.__main__:app"
+symmetric-secret-share = "sss_cli.__main__:app"
 
 [tool.poetry.dependencies]
 PyNaCl = "^1.5.0"

@@ -1,6 +1,6 @@
 # Version
 
-## 0.0.7
+## 0.0.8
 
 - Feature: Generate new 32-byte ASCII key
 - Polish docs

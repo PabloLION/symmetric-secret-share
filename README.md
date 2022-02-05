@@ -1,4 +1,4 @@
-# symmetric-secrete-share
+# symmetric-secret-share
 
 Python CLI to share secret files via github with symmetric encryption ed25519.
 
@@ -6,11 +6,11 @@ Python CLI to share secret files via github with symmetric encryption ed25519.
 - Temporarily supports only text files (only tested with `.env`).
 - Best used to store/share secrets and configurations.
 - Key should be a 32-byte long string, meanly, 32 ASCII, 16 two-byte UTF-8 or 8 four-byte UTF-8 characters.
-- (FAQ) If you share with GitHub (like the example), please notice that there's a 5 minutes cool-down on refreshing. [Detail](https://stackoverflow.com/questions/46551413/github-not-update-raw-after-commit)
+- (FAQ) If you share with GitHub (like the example), please notice that there's a 5 minutes cool-down on refreshing. [Detail](https://stackoverflow.com/questions/46551413/github-not-update-raw-after-commit) However, GitHub Gist seems doesn't have this cool-down limitation.
 
 ## Use
 
-1. Install CLI: `pip3 install symmetric-secrete-share`.
+1. Install CLI: `pip3 install symmetric-secret-share`.
 2. Check the [Tutorial Chapter](#Tutorial) and `sss --help`.
 3. Recommended: set up a global key chain with `sss key`, or you would have to input a key every time.
 4. Get a config like `$REPO_ROOT/tests/injection/sss.json`. The JSON-schema in `$schema` of this file will help you write the config file.
@@ -61,7 +61,7 @@ In this tutorial, all commands are assumed to be run under the `$REPO_ROOT`. We 
 
 - key chain: A file to share key, initialized with `sss key`.
 - key: `This key contains 32 characters.`.
-- URL: `https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.encrypted`.
+- URL: `https://raw.githubusercontent.com/PabloLION/symmetric-secret-share/main/tests/example.encrypted`.
 
 We are going to play with the folder `test/injection`, with the `sss.json` file inside it. To share your own file, a new config file should be created.
 

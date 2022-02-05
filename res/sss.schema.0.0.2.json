@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema",
   "$id": "sss.schema.json@0.0.2",
   "title": "sss.schema.json",
-  "description": "Schema for symmetric_secrete_share config file",
+  "description": "Schema for symmetric_secret_share config file",
   "type": "object",
   "required": [
     "source_url",
@@ -20,7 +20,7 @@
   "source_url": {
     "type": "string",
     "description": "URL of the source file",
-    "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env"
+    "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secret-share/main/tests/example.env"
   },
   "target_rel_path": {
     "type": "string",

@@ -1,14 +1,14 @@
 {
   "$id": "sss.schema.json@latest",
   "$schema": "http://json-schema.org/schema",
-  "description": "Schema for symmetric_secrete_share config file",
-  "title": "symmetric_secrete_share_schema",
+  "description": "Schema for symmetric_secret_share config file",
+  "title": "symmetric_secret_share_schema",
   "type": "object",
   "$defs": {
     "file": {
       "properties": {
         "source": {
-          "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.env",
+          "default": "https://raw.githubusercontent.com/PabloLION/symmetric-secret-share/main/tests/example.env",
           "description": "URL of the source file",
           "type": "string"
         },
@@ -47,9 +47,9 @@
       "type": "integer"
     },
     "sss_version": {
-      "description": "Version of symmetric_secrete_share",
+      "description": "Version of symmetric_secret_share",
       "enum": [
-        "0.0.7"
+        "0.0.8"
       ],
       "type": "string"
     }

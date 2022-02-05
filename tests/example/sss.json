@@ -1,13 +1,13 @@
 {
-  "$schema": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/res/sss.schema.json",
+  "$schema": "https://raw.githubusercontent.com/PabloLION/symmetric-secret-share/main/res/sss.schema.json",
   "$dev_schema": "./../../res/sss.schema.json",
-  "sss_version": "0.0.7",
+  "sss_version": "0.0.8",
   "config_id": "sss-example",
   "key_identifier": "test_key",
   "last_key_rotation": 0,
   "files": [
     {
-      "source": "https://raw.githubusercontent.com/PabloLION/symmetric-secrete-share/main/tests/example.encrypted",
+      "source": "https://raw.githubusercontent.com/PabloLION/symmetric-secret-share/main/tests/example.encrypted",
       "target": "./target.env"
     }
   ]
